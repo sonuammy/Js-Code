@@ -1,38 +1,35 @@
-    <!-- 1. Programming Challenge Description :
-
-You are given 3 coins of value 1, 3 and 5. You are also given a total which you have to arrive at. Find the minimum number of coins to arrive at it.
-
-Input:
-
-Your program should read lines from standard input. Each line contains a positive integer number which represents the total you have to arrive at.
-
-Output:
-
-Print out the minimum number of coins required to arrive at the total.  -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Minimum Coins</title>
-	<script  type="text/javascript">
-		function numberOfCoins() {
-			var no = parseInt(document.getElementById("t1").value);
-			var noOf5Coins = parseInt(no/5);
-	    	var noOf3Coins = parseInt((no-(noOf5Coins*5))/3);
-	    	var noOf1Coins = parseInt((no-(noOf5Coins*5)-(noOf3Coins*3))/1);
-	    	var ans = noOf5Coins + noOf3Coins + noOf1Coins;
-	    	document.getElementById("p1").innerHTML = "The minimum number of coins required to arrive at the total: "+ans;
-			//console.log(ans);
-		}	
-	</script>
+    <meta charset="UTF-8">
+    <title>Minimum Coins</title>
+    <script  type="text/javascript">
+        function numberOfCoins() {
+            var no = parseInt(document.getElementById("t1").value);
+            var noOf5Coins = parseInt(no/5);
+            var noOf3Coins = parseInt((no-(noOf5Coins*5))/3);
+            var noOf1Coins = parseInt((no-(noOf5Coins*5)-(noOf3Coins*3))/1);
+            var ans = noOf5Coins + noOf3Coins + noOf1Coins;
+            document.getElementById("p1").innerHTML = "The minimum number of coins required to arrive at the total: "+ans;
+			if(noOf5Coins != 0)
+			document.getElementById("five").innerHTML = "Number of 5 unit coins: "+noOf5Coins;
+			if(noOf3Coins != 0)
+			document.getElementById("three").innerHTML = "Number of 3 unit coins: "+noOf3Coins;
+			if(noOf1Coins != 0)
+			document.getElementById("one").innerHTML = "Number of 1 unit coins: "+noOf1Coins;
+            //console.log(ans);
+        }    
+    </script>
 </head>
 <body>
-	<div>
-		Enter the sum of Coins: <input type = "text" id = "t1"><br><br>
-		<button type="click" onclick="numberOfCoins()">Submit</button><br>
-		<h4 id = "p1"></h4>
-	</div>
+    <div>
+        Enter the sum of Coins: <input type = "text" id = "t1"><br><br>
+        <button type="click" onclick="numberOfCoins()">Submit</button><br>
+        <h2 id = "p1"></h2>
+		<h3>Coins Number:</h3>
+		<span id = "five"></span><br>
+		<span id = "three"></span><br>
+		<span id = "one"></span><br>
+    </div>
 </body>
 </html>
